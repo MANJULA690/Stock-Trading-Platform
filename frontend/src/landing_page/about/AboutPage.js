@@ -1,14 +1,14 @@
-import React from 'react'
+import React from 'react';
 import Hero from './Hero';
-import Teams from './Team';
+import Team from './Team';
+import OpenAccount from '../OpenAccount';
 
-function AboutPage() {
-    return ( 
-        <>
-            <Hero />
-            <Teams />
-        </>
-     );
+export default function AboutPage() {
+  return (
+    <>
+      <Hero />
+      <Team />
+      <OpenAccount />
+    </>
+  );
 }
-
-export default AboutPage;

@@ -1,53 +1,35 @@
-import React from "react";
+import React from 'react';
 
-function Team() {
+const TEAM = [
+  { name:'Arjun Mehta', role:'Founder & CEO', bio:'Bootstrapped TradeX after 10 years as a trader. Passionate about making markets accessible to every Indian.' },
+  { name:'Priya Nair', role:'Co-founder & CTO', bio:'Ex-Google engineer. Architected our trading engine that handles 10M+ orders/day with 99.99% uptime.' },
+  { name:'Ravi Shankar', role:'Head of Product', bio:'Previously built fintech products at Paytm and Razorpay. Obsessed with simplifying complex financial UX.' },
+  { name:'Anita Desai', role:'Chief Compliance Officer', bio:'15 years at SEBI before joining TradeX. Ensures we operate at the highest regulatory standards.' },
+];
+
+export default function Team() {
   return (
-    <div className="container">
-      <div className="row p-3 mt-5 border-top">
-        <h1 className="text-center ">People</h1>
-      </div>
-
-      <div
-        className="row p-3 text-muted"
-        style={{ lineHeight: "1.8", fontSize: "1.1em" }}
-      >
-        <div className="col-6 p-3 text-center">
-          <img
-            src="media/images/nithinKamath.jpg"
-            style={{ borderRadius: "100%", width: "50%" }}
-          />
-          <h4 className="mt-5">Nithin Kamath</h4>
-          <h6>Founder, CEO</h6>
+    <section className="section">
+      <div className="container-tx">
+        <div style={{ marginBottom:'3rem' }}>
+          <p className="overline" style={{ marginBottom:'0.75rem' }}>Leadership</p>
+          <h2>The people behind TradeX</h2>
         </div>
-        <div className="col-6 p-3">
-          <p>
-            Nithin bootstrapped and founded Zerodha in 2010 to overcome the
-            hurdles he faced during his decade long stint as a trader. Today,
-            Zerodha has changed the landscape of the Indian broking industry.
-          </p>
-          <p>
-            He is a member of the SEBI Secondary Market Advisory Committee
-            (SMAC) and the Market Data Advisory Committee (MDAC).
-          </p>
-          <p>Playing basketball is his zen.</p>
-          <p>
-            Connect on{" "}
-            <a href="" style={{ textDecoration: "none" }}>
-              Homepage
-            </a>{" "}
-            /{" "}
-            <a href="" style={{ textDecoration: "none" }}>
-              TradingQnA
-            </a>{" "}
-            /{" "}
-            <a href="" style={{ textDecoration: "none" }}>
-              Twitter
-            </a>
-          </p>
+        <div className="grid-2" style={{ gap:'2rem' }}>
+          {TEAM.map(p => (
+            <div key={p.name} className="tx-card" style={{ display:'flex', gap:'1.5rem', alignItems:'flex-start' }}>
+              <div style={{ width:60, height:60, borderRadius:'50%', background:'linear-gradient(135deg, var(--accent-glow), var(--bg-secondary))', border:'2px solid var(--border-accent)', display:'flex', alignItems:'center', justifyContent:'center', fontFamily:'var(--font-display)', fontWeight:800, fontSize:'1.4rem', color:'var(--accent)', flexShrink:0 }}>
+                {p.name.charAt(0)}
+              </div>
+              <div>
+                <h3 style={{ fontSize:'1rem', marginBottom:'0.25rem' }}>{p.name}</h3>
+                <p style={{ color:'var(--accent)', fontSize:'0.8rem', fontFamily:'var(--font-mono)', marginBottom:'0.75rem' }}>{p.role}</p>
+                <p style={{ color:'var(--text-secondary)', fontSize:'0.875rem', lineHeight:1.7 }}>{p.bio}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
-
-export default Team;

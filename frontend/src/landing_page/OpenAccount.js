@@ -1,23 +1,24 @@
-import React from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-function OpenAccount() {
+export default function OpenAccount() {
   return (
-    <div className="container p-5 mb-5">
-      <div className="row text-center">
-        <h1 className="mt-5">Open a Zerodha account</h1>
-        <p>
-          Modern platforms and apps, ₹0 investments, and flat ₹20 intraday and
-          F&O trades.
+    <section style={{ padding:'5rem 0', background:'linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-card) 100%)', borderTop:'1px solid var(--border)', textAlign:'center' }}>
+      <div className="container-tx">
+        <p className="overline" style={{ marginBottom:'1rem' }}>Get Started Today</p>
+        <h2 style={{ fontSize:'clamp(2rem, 3.5vw, 3rem)', marginBottom:'1rem', maxWidth:'600px', margin:'0 auto 1rem' }}>
+          Open your free TradeX account
+        </h2>
+        <p style={{ color:'var(--text-secondary)', maxWidth:'480px', margin:'0 auto 2.5rem', lineHeight:1.7 }}>
+          Join 1.3 crore investors. Get full access to all markets, research, and tools at zero account opening fee.
         </p>
-        <button
-          className="p-2 btn btn-primary fs-5 mb-5"
-          style={{ width: "20%", margin: "0 auto" }}
-        >
-          Sign up Now
-        </button>
+        <Link to="/signup" className="btn-primary-tx" style={{ fontSize:'1.1rem', padding:'1rem 2.5rem' }}>
+          Open Free Account →
+        </Link>
+        <p style={{ marginTop:'1.25rem', fontSize:'0.82rem', color:'var(--text-muted)' }}>
+          Account opening is 100% free. No minimum balance required.
+        </p>
       </div>
-    </div>
+    </section>
   );
 }
-
-export default OpenAccount;

@@ -1,14 +1,15 @@
-import React from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-function NotFound() {
+export default function NotFound() {
   return (
-    <div className="container p-5 mb-5">
-      <div className="row text-center">
-        <h1 className="mt-5">404 Not Found</h1>
-        <p>Sorry, the page you are looking for does not exist.</p>
+    <div style={{ minHeight:'60vh', display:'flex', alignItems:'center', justifyContent:'center', textAlign:'center', padding:'3rem' }}>
+      <div>
+        <div style={{ fontFamily:'var(--font-mono)', fontSize:'6rem', color:'var(--accent)', lineHeight:1, marginBottom:'1rem' }}>404</div>
+        <h2 style={{ marginBottom:'0.75rem' }}>Page not found</h2>
+        <p style={{ color:'var(--text-secondary)', marginBottom:'2rem' }}>The page you are looking for doesn't exist or has been moved.</p>
+        <Link to="/" className="btn-primary-tx">Go Home →</Link>
       </div>
     </div>
   );
 }
-
-export default NotFound;

@@ -1,49 +1,35 @@
-import React from "react";
+import React from 'react';
 
-function Stats() {
+const FEATURES = [
+  { icon:'⚡', title:'Zero Commission', desc:'Trade equity delivery for free. Flat ₹20 for intraday & F&O. No hidden charges ever.' },
+  { icon:'🛡️', title:'Secure & Regulated', desc:'SEBI registered. Your funds are kept in segregated client accounts. Bank-grade encryption.' },
+  { icon:'📊', title:'Advanced Analytics', desc:'Real-time market data, depth charts, P&L reports, and portfolio insights in one dashboard.' },
+  { icon:'📱', title:'Multi-Platform', desc:'Trade on web, Android, or iOS. Seamless sync across all your devices in real time.' },
+  { icon:'🎓', title:'Learn & Earn', desc:'Free access to our 20,000+ lesson library. Learn markets before risking capital.' },
+  { icon:'🤖', title:'Smart Alerts', desc:'AI-powered nudges that warn you of risky trades before you execute them.' },
+];
+
+export default function Stats() {
   return (
-    <div className="container p-3">
-      <div className="row p-5">
-        <div className="col-6 p-5">
-          <h1 className="fs-2 mb-5">Trust with confidence</h1>
-          <h2 className="fs-4">Customer-first always</h2>
-          <p className="text-muted">
-            That's why 1.3+ crore customers trust Zerodha with ₹3.5+ lakh crores
-            worth of equity investments.
-          </p>
-          <h2 className="fs-4">No spam or gimmicks</h2>
-          <p className="text-muted">
-            No gimmicks, spam, "gamification", or annoying push notifications.
-            High quality apps that you use at your pace, the way you like.
-          </p>
-          <h2 className="fs-4">The Zerodha universe</h2>
-          <p className="text-muted">
-            Not just an app, but a whole ecosystem. Our investments in 30+
-            fintech startups offer you tailored services specific to your needs.
-          </p>
-          <h2 className="fs-4">Do better with money</h2>
-          <p className="text-muted">
-            With initiatives like Nudge and Kill Switch, we don't just
-            facilitate transactions, but actively help you do better with your
-            money.
+    <section className="section">
+      <div className="container-tx">
+        <div style={{ textAlign:'center', marginBottom:'3.5rem' }}>
+          <p className="overline" style={{ marginBottom:'0.75rem' }}>Why TradeX</p>
+          <h2 style={{ fontSize:'clamp(1.8rem, 3vw, 2.5rem)' }}>Built for serious traders</h2>
+          <p style={{ color:'var(--text-secondary)', marginTop:'0.75rem', maxWidth:'480px', margin:'0.75rem auto 0' }}>
+            Everything you need to make confident market decisions, all in one place.
           </p>
         </div>
-        <div className="col-6 p-5">
-          <img src="media/images/ecosystem.png" style={{ width: "90%" }} />
-          <div className="text-center">
-            <a href='' className="mx-5" style={{ textDecoration: "none" }}>
-              Explore our products{" "}
-              <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-            </a>
-            <a href='' style={{ textDecoration: "none" }}>
-              Try Kite demo{" "}
-              <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
-            </a>
-          </div>
+        <div className="grid-3">
+          {FEATURES.map(f => (
+            <div key={f.title} className="tx-card" style={{ display:'flex', flexDirection:'column', gap:'0.75rem' }}>
+              <div style={{ fontSize:'1.8rem', lineHeight:1 }}>{f.icon}</div>
+              <h3 style={{ fontSize:'1rem', fontWeight:700 }}>{f.title}</h3>
+              <p style={{ color:'var(--text-secondary)', fontSize:'0.9rem', lineHeight:1.7 }}>{f.desc}</p>
+            </div>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 }
-
-export default Stats;

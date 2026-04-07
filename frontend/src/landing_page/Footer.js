@@ -1,107 +1,47 @@
-import React from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-function Footer() {
+export default function Footer() {
   return (
-    <footer style={{ backgroundColor: "rgb(250, 250, 250)" }}>
-      <div className="container border-top mt-5">
-        <div className="row mt-5">
-          <div className="col">
-            <img src="media/images/logo.svg" style={{ width: "50%" }} />
-            <p>
-              &copy; 2010 - 2024, Not Zerodha Broking Ltd. All rights reserved.
+    <footer style={{ background:'var(--bg-secondary)', borderTop:'1px solid var(--border)', padding:'3.5rem 0 2rem' }}>
+      <div className="container-tx">
+        <div style={{ display:'grid', gridTemplateColumns:'2fr 1fr 1fr 1fr', gap:'2rem', marginBottom:'3rem' }}>
+          <div>
+            <div style={{ display:'flex', alignItems:'center', gap:'0.5rem', marginBottom:'1rem' }}>
+              <div style={{ width:28, height:28, background:'var(--accent)', borderRadius:'6px', display:'flex', alignItems:'center', justifyContent:'center', fontFamily:'var(--font-display)', fontWeight:800, fontSize:'0.9rem', color:'#0a0b0f' }}>T</div>
+              <span style={{ fontFamily:'var(--font-display)', fontWeight:800, fontSize:'1.1rem' }}>Trade<span style={{ color:'var(--accent)' }}>X</span></span>
+            </div>
+            <p style={{ color:'var(--text-secondary)', fontSize:'0.875rem', lineHeight:1.7, maxWidth:'280px', marginBottom:'1rem' }}>
+              India's modern discount brokerage platform. Trade, invest and grow wealth with transparent pricing and advanced technology.
             </p>
+            <p style={{ color:'var(--text-muted)', fontSize:'0.78rem' }}>© 2025 TradeX Broking Ltd. All rights reserved.</p>
           </div>
-          <div className="col">
-            <p>Company</p>
-            <a href="">About</a>
-            <br />
-            <a href="">Products</a>
-            <br />
-            <a href="">Pricing</a>
-            <br />
-            <a href="">Referral programme</a>
-            <br />
-            <a href="">Careers</a>
-            <br />
-            <a href="">Zerodha.tech</a>
-            <br />
-            <a href="">Press & media</a>
-            <br />
-            <a href="">Zerodha cares (CSR)</a>
-            <br />
-          </div>
-          <div className="col">
-            <p>Support</p>
-            <a href="">Contact</a>
-            <br />
-            <a href="">Support portal</a>
-            <br />
-            <a href="">Z-Connect blog</a>
-            <br />
-            <a href="">List of charges</a>
-            <br />
-            <a href="">Downloads & resources</a>
-            <br />
-          </div>
-          <div className="col">
-            <p>Account</p>
-            <a href="">Open an account</a>
-            <br />
-            <a href="">Fund transfer</a>
-            <br />
-            <a href="">60 day challenge</a>
-            <br />
-          </div>
+          {[
+            { heading:'Company', links:[['About','/about'],['Products','/products'],['Pricing','/pricing'],['Careers','#'],['Blog','#']] },
+            { heading:'Support', links:[['Help Center','/support'],['Create Ticket','/support'],['Grievance','#'],['Downloads','#']] },
+            { heading:'Account', links:[['Open Account','/signup'],['Login','/signup?mode=login'],['Dashboard','/dashboard'],['Add Funds','#']] },
+          ].map(col => (
+            <div key={col.heading}>
+              <h4 style={{ fontSize:'0.8rem', fontWeight:700, textTransform:'uppercase', letterSpacing:'0.08em', color:'var(--text-muted)', marginBottom:'1rem' }}>{col.heading}</h4>
+              <div style={{ display:'flex', flexDirection:'column', gap:'0.6rem' }}>
+                {col.links.map(([label, to]) => (
+                  <Link key={label} to={to} style={{ color:'var(--text-secondary)', fontSize:'0.875rem', transition:'color 0.2s' }}
+                    onMouseEnter={e => e.target.style.color='var(--text-primary)'}
+                    onMouseLeave={e => e.target.style.color='var(--text-secondary)'}>
+                    {label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
-        <div className="mt-5 text-muted" style={{ fontSize: "14px" }}>
-          <p>
-            Zerodha Broking Ltd.: Member of NSE​ &​ BSE – SEBI Registration no.:
-            INZ000031633 CDSL: Depository services through Zerodha Securities
-            Pvt. Ltd. – SEBI Registration no.: IN-DP-100-2015 Commodity Trading
-            through Zerodha Commodities Pvt. Ltd. MCX: 46025 – SEBI Registration
-            no.: INZ000038238 Registered Address: Zerodha Broking Ltd.,
-            #153/154, 4th Cross, Dollars Colony, Opp. Clarence Public School,
-            J.P Nagar 4th Phase, Bengaluru - 560078, Karnataka, India. For any
-            complaints pertaining to securities broking please write to
-            complaints@zerodha.com, for DP related to dp@zerodha.com. Please
-            ensure you carefully read the Risk Disclosure Document as prescribed
-            by SEBI | ICF
-          </p>
 
-          <p>
-            Procedure to file a complaint on SEBI SCORES: Register on SCORES
-            portal. Mandatory details for filing complaints on SCORES: Name,
-            PAN, Address, Mobile Number, E-mail ID. Benefits: Effective
-            Communication, Speedy redressal of the grievances
-          </p>
-
-          <p>
-            Investments in securities market are subject to market risks; read
-            all the related documents carefully before investing.
-          </p>
-
-          <p>
-            "Prevent unauthorised transactions in your account. Update your
-            mobile numbers/email IDs with your stock brokers. Receive
-            information of your transactions directly from Exchange on your
-            mobile/email at the end of the day. Issued in the interest of
-            investors. KYC is one time exercise while dealing in securities
-            markets - once KYC is done through a SEBI registered intermediary
-            (broker, DP, Mutual Fund etc.), you need not undergo the same
-            process again when you approach another intermediary." Dear
-            Investor, if you are subscribing to an IPO, there is no need to
-            issue a cheque. Please write the Bank account number and sign the
-            IPO application form to authorize your bank to make payment in case
-            of allotment. In case of non allotment the funds will remain in your
-            bank account. As a business we don't give stock tips, and have not
-            authorized anyone to trade on behalf of others. If you find anyone
-            claiming to be part of Zerodha and offering such services, please
-            create a ticket here.
+        <div style={{ borderTop:'1px solid var(--border)', paddingTop:'1.5rem' }}>
+          <p style={{ fontSize:'0.75rem', color:'var(--text-muted)', lineHeight:1.8 }}>
+            TradeX Broking Ltd.: Member of NSE & BSE — SEBI Registration no.: INZ000099999 | CDSL: Depository services — SEBI Registration no.: IN-DP-999-2024 | Commodity Trading through TradeX Commodities Pvt. Ltd. MCX: 46099 — SEBI Registration no.: INZ000099238 | Investments in securities market are subject to market risks; read all related documents carefully before investing. | Prevent unauthorised transactions in your account — update your mobile numbers/email IDs with your stock brokers.
           </p>
         </div>
       </div>
     </footer>
   );
 }
-
-export default Footer;
